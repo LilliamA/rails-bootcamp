@@ -1,0 +1,9 @@
+{
+  "name": "victor_test",
+  "private": true,
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "LilliamA <lilliam.arce31@gmail.com>",
+  "license": "MIT"
+}
