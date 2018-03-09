@@ -1,0 +1,12 @@
+<h2>Add a New Project</h2>
+  <%= form_for :project, remote: true do |f| %>
+    <div class="form-group">
+      <%= f.label :title, "Project Title:", class: "col-md-4 control-label" %> 
+    </div>
+    <div class="col-md-6">
+        <%= f.text_field :tittle, class: "form-control" %>
+    </div><br>
+    <div class="col-md-6">
+        <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+    </div>
+  <% end %>

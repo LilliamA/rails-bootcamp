@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
-
+    before_action :set_projects, only: %i[index create]
     def index
-        @projects = Project.all
         respond_to do |format|
             format.html
         end
@@ -12,7 +11,6 @@ class ProjectsController < ApplicationController
     end
 
     def create
-
         @project = Project.new(project_params)
         @project.save
         respond_to do |format|
@@ -21,7 +19,6 @@ class ProjectsController < ApplicationController
     end 
 
     def update
-
          @project = Project.find(params[:id])
 
         if @project.update(project_params)
@@ -36,7 +33,6 @@ class ProjectsController < ApplicationController
     end
     
     def show
-
         @project = Project.find(params[:id])
         respond_to do |format|
             format.html
@@ -44,15 +40,14 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
-
         @project = Project.find(params[:id])
         @project.destroy
-
     end
 
     private
-
-        
+    def set_projects
+        @projects = Project.all
+    end 
     def project_params
         params.require(:project).permit(:tittle)
     end

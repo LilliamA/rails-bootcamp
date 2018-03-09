@@ -1,40 +1,6 @@
 <div class="container">
   <h2>Listing Projects</h2>
   <p>This is the list of projects you have</p>
-  <table class="table" id="example">
-    <thead class="thead-dark">
-      <tr>
-        <th>Title</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @projects.each do |project| %>
-  <tr>
-    <td><%= project.tittle %></td>
-    <td><%= link_to 'Show', project_path(project) %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project_path(project),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-    </tbody>
-  </table>
-
-   <h2>Add a New Project</h2>
-
-  <%= form_for :project, remote: true do |f| %>
-    <div class="form-group">
-      <%= f.label :title, "Project Title:", class: "col-md-4 control-label" %> 
-    </div>
-    <div class="col-md-6">
-        <%= f.text_field :tittle, class: "form-control" %>
-    </div><br>
-    <div class="col-md-6">
-        <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
-    </div>
- 
-  <% end %>
+  <div id="project-table"> <%=render partial: 'projects/projects_table', locals: {projects: @projects}%></div>
+  <div><%= render 'projects/form'%></div>
 </div>
