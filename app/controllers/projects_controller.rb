@@ -8,25 +8,47 @@ class ProjectsController < ApplicationController
     end
 
     def new
+         @project = Project.new
     end
 
     def create
+
+        @project = Project.new(project_params)
+        @project.save
+        redirect_to @project
+
     end 
 
     def update
+
+         @project = Project.find(params[:id])
+
+        if @project.update(project_params)
+            redirect_to @project
+        else
+            render 'edit'
+  end
+
     end
 
     def edit
+        @project = Project.find(params[:id])
     end
     
     def show
+
         @project = Project.find(params[:id])
         respond_to do |format|
             format.html
+
         end
     end
 
     def destroy
+
+        @project = Project.find(params[:id])
+        @project.destroy
+
     end
 
     private
