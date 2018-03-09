@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :set_projects, only: %i[index create]
-    before_action :set_projects, only: %i[index destroy]
+    before_action :set_projects, only: %i[index create destroy]
     def index
         respond_to do |format|
             format.html

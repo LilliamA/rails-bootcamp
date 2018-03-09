@@ -6,7 +6,7 @@
         <h2>Add a New Project</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-      <%= form_for :project, remote: true do |f| %>
+      <%= form_for @project, remote: true do |f| %>
         <div class="form-group">
           <%= f.label :title, "Project Title:", class: "col-md-4 control-label" %> 
         </div>
