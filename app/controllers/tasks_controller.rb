@@ -21,8 +21,6 @@ class TasksController < ApplicationController
   		@task = Task.new(task_params)
   		@task.save
   		redirect_to @task
-        end
-  	
     end
     
     def update

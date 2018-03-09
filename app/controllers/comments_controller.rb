@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
   		@comment = Comment.new(comment_params)
   		@comment.save
   		redirect_to @comment
-        end
   	
     end
     

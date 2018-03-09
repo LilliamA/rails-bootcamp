@@ -15,8 +15,9 @@ class ProjectsController < ApplicationController
 
         @project = Project.new(project_params)
         @project.save
-        redirect_to @project
-
+        respond_to do |format|
+            format.js
+        end
     end 
 
     def update
@@ -27,8 +28,7 @@ class ProjectsController < ApplicationController
             redirect_to @project
         else
             render 'edit'
-  end
-
+        end
     end
 
     def edit
@@ -40,7 +40,6 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         respond_to do |format|
             format.html
-
         end
     end
 
