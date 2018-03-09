@@ -1,5 +1,5 @@
 <div>
-    <table class="table" id="example">
+    <table class="table">
         <thead class="thead-dark">
             <tr>
             <th>Title</th>
@@ -14,7 +14,7 @@
     <td><%= project.tittle %></td>
     <td><%= link_to 'Show', project_path(project) %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project_path(project),
+    <td><%= link_to 'Destroy', project_path(project), remote: true,
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
     <% end %>

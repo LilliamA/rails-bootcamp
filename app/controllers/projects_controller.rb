@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :set_projects, only: %i[index create]
+    before_action :set_projects, only: %i[index destroy]
     def index
         respond_to do |format|
             format.html
@@ -42,6 +43,9 @@ class ProjectsController < ApplicationController
     def destroy
         @project = Project.find(params[:id])
         @project.destroy
+        respond_to do |format|
+            format.js
+        end
     end
 
     private

@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Add a New Project</a>
+                  <%= link_to "Open modal", new_project_path, :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "project-modal" %>
                 </li>
                 <li>
                     <a href="#">Profile</a>
