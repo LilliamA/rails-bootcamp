@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :set_projects, only: %i[index create destroy]
+    before_action :set_projects, only: %i[index create destroy update]
     def index
         respond_to do |format|
             format.html
@@ -22,7 +22,9 @@ class ProjectsController < ApplicationController
          @project = Project.find(params[:id])
 
         if @project.update(project_params)
-            redirect_to @project
+           respond_to do |format|
+            format.js
+        end
         else
             render 'edit'
         end
