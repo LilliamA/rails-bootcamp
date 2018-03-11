@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :comments
+	
   resources :projects
+  resources :tasks
 
   root to: 'pages#home'
   

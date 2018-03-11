@@ -1,0 +1,44 @@
+<div id="edit_task-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Project</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <%= form_for @task, remote: true, :url => { :action => :update, :id => @task.id },
+:method => :put do |f| %>
+        <% if @task.errors.any? %>
+          <div id="errorExplanation">
+              <h2><%= pluralize(@task.errors.count, "error") %> prohibited
+                this task from being saved:</h2>
+              <ul>
+                <% @task.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+           <%= f.label :Title, "Task Title:", class: "col-md-4 control-label" %> 
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :title, class: "form-control" %>
+        </div><br>
+        
+        <div class="form-group">
+           <%= f.label :priority, "Task Priority:", class: "col-md-4 control-label" %> 
+        </div>
+        <div class="col-md-6">
+          <%= f.number_field :priority, class: "form-control" %>
+        </div><br>
+
+        <div class="col-md-6">
+          <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+        </div><br>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>

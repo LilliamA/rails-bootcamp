@@ -3,9 +3,11 @@
 one:
   title: MyString
   priority: 1
-  status: false
+  status: 1
+  project_id: 1
 
 two:
   title: MyString
   priority: 1
-  status: false
+  status: 1
+  project_id: 1

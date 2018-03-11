@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :set_projects, only: %i[index create destroy update]
     def index
+        @projects = Project.all
         respond_to do |format|
             format.html
         end
@@ -36,6 +37,7 @@ class ProjectsController < ApplicationController
     
     def show
         @project = Project.find(params[:id])
+        @tasks = Task.where(:project_id => params[:id])
         respond_to do |format|
             format.html
         end
@@ -52,8 +54,13 @@ class ProjectsController < ApplicationController
     private
     def set_projects
         @projects = Project.all
-    end 
+    end
+
     def project_params
         params.require(:project).permit(:tittle)
+    end
+
+    def task_params
+      params.require(:task).permit(:title, :priority, :status, :project_id)
     end
 end
