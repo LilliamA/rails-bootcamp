@@ -22,14 +22,7 @@
         </div><br>
 
         <div class="form-group">
-           <%= f.label :status, "Task Status:", class: "col-md-4 control-label" %> 
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :status, class: "form-control" %>
-        </div><br>
-
-        <div class="form-group">
-           <%= f.label :status, "Project ID:", class: "col-md-4 control-label" %> 
+           <%= f.label :project_id, "Project ID:", class: "col-md-4 control-label" %> 
         </div>
         <div class="col-md-6">
           <%= f.collection_select :project_id, Project.all, :id, :tittle, class: "form-control" %>

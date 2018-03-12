@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
-  before_action :set_tasks, only: %i[index create destroy update]
+  before_action :set_tasks, only: %i[destroy update]
+  before_action :set_tasks_create, only: %i[create]
 
   def index
     @tasks = Task.all
@@ -25,16 +26,16 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.save
     respond_to do |format|
-      format.js
+      if @task.save
+        format.js
+      else
+        format.html { render :new }
+      end
     end
   end
 
   def update
-
-  	@task = Task.find(params[:id])
 
     respond_to do |format|
       if @task.update(task_params)
@@ -46,7 +47,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-  	@task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
       format.js
@@ -55,11 +55,17 @@ class TasksController < ApplicationController
 
   private
     def set_tasks
-      @tasks = Task.all
+      @task = Task.find(params[:id])
+      @tasks = Task.where(:project_id => @task.project_id)
+    end
+
+    def set_tasks_create
+      @task = Task.new(task_params)
+      @tasks = Task.where(:project_id => @task.project_id)
     end
 
     def task_params
-      params.require(:task).permit(:title, :priority, :status, :project_id)
+      params.require(:task).permit(:title, :priority, :project_id)
     end
 
 end

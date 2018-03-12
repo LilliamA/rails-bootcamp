@@ -1,6 +1,9 @@
 <div class="container">
   <h2>Listing Tasks</h2>
-  <p>This is the list of tasks of your project</p>
+  <p>This is the list tasks of your project</p>
   <div id="task-table"> <%=render partial: 'tasks/tasks_table', locals: {tasks: @tasks}%></div>
+
+  <%= link_to "Add Task", new_task_path, :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "new_task-modal" %>
+  
 
 </div>
