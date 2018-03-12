@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
 
     def update
          @project = Project.find(params[:id])
-
         if @project.update(project_params)
            respond_to do |format|
             format.js
@@ -37,7 +36,10 @@ class ProjectsController < ApplicationController
     
     def show
         @project = Project.find(params[:id])
-        @tasks = Task.where(:project_id => params[:id])
+        @tasks = Task.where(project_id: params[:id])
+
+        @task = Task.new
+        
         respond_to do |format|
             format.html
         end

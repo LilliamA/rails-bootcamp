@@ -1,9 +1,26 @@
 <div class="container">
-  <h2>Listing Tasks</h2>
-  <p>This is the list tasks of your project</p>
+  <h2>Lista de Tareas</h2>
   <div id="task-table"> <%=render partial: 'tasks/tasks_table', locals: {tasks: @tasks}%></div>
+</div>
 
-  <%= link_to "Add Task", new_task_path, class: "btn", remote: true, data: { toggle: 'modal', target: 'new_task_modal' } %>
-  
 
+
+<%# Added Bootstrap data modal attribute %>
+<%= link_to 'New Person', '#new_task_modal', 'data-toggle' => 'modal' %>
+
+<div class="modal fade" id="new_task_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Crear nueva Tarea</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'tasks/form', modal: true, remote: true, locals: {task: @task}%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,21 @@
+
+    
+    
+      <%= form_for @task, url: project_tasks_path(@project), html: {multipart: true}, remote: true do |f| %>
+        <div class="form-group">
+           <%= f.label :title, "Task Title:", class: "col-md-4 control-label" %> 
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :title, class: "form-control" %>
+        </div><br>
+        <div class="form-group">
+           <%= f.label :priority, "Task Priority:", class: "col-md-4 control-label" %> 
+        </div>
+        <div class="col-md-6">
+          <%= f.number_field :priority, class: "form-control" %>
+        </div><br>
+
+        <div class="col-md-6">
+          <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+        </div><br>
+      <% end %>

@@ -4,8 +4,8 @@ class Tasks < ActiveRecord::Migration[5.1]
       t.string :title
       t.integer :priority
       t.integer :status
-      t.integer :project_id
 
+      t.references :project, foreign_key: { to_table: :projects, on_delete: :cascade }
       t.timestamps
     end
   end
