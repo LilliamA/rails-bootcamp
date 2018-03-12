@@ -56,7 +56,7 @@ class TasksController < ApplicationController
 
   private
     def set_tasks
-      @tasks = Task.where(:project_id => @task.project_id)
+      @tasks = Task.where(project_id: @task.project_id)
     end
 
     def task_params

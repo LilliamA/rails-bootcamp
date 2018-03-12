@@ -13,7 +13,7 @@
     <tr>
     <td><%= project.tittle %></td>
     <td><%= link_to 'Show', project_path(project) %></td>
-    <td><%= link_to "Edit", edit_project_path(project), :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "edit-modal" %></td>
+    <td><%= link_to "Edit", edit_project_path(project), class: "btn", remote: true, data: { toggle: 'modal', target: 'edit_project_modal' } %></td>
     <td><%= link_to 'Destroy', project_path(project), remote: true,
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
