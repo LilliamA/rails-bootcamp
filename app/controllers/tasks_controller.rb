@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :set_tasks, only: %i[create destroy update]
-  before_action :set_project, only: %i[new create destroy update]
+  before_action :set_project, only: %i[edit new create destroy update]
 
   def index
     @tasks = Task.all
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-  	@task = Task.find(params[:id])
+  	 @task = @project.tasks.find(params[:id])
   end
 
   def create
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = @project.tasks.find(params[:id])
     respond_to do |format|
       if @task.update(task_params)
         format.js

@@ -13,6 +13,7 @@
     <tr>
         <td><%= task.title %></td>
         <td><%= task.priority %></td>
+        <td><%= link_to 'Edit', edit_project_task_path(@project, task), remote: true%></td>
         <td><%= link_to 'Done', [task.project, task], remote: true,
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
