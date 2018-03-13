@@ -1,5 +1,38 @@
 <div class="container">
-  <h2>Listing Projects</h2>
-  <p>This is the list of projects you have</p>
+  <h2>Project List</h2>
   <div id="project-table"> <%=render partial: 'projects/projects_table', locals: {projects: @projects}%></div>
+</div>
+
+<div class="modal fade" id="new_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Create New Project</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'projects/new_project_form', modal: true, remote: true, locals: {project: @project}%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="edit_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Project</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'projects/edit_project_form', modal: true, remote: true, locals: {project: @project}%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

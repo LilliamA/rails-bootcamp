@@ -5,7 +5,7 @@
         <h2>Edit Project</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-      <%= form_for @task, remote: true, :url => { :action => :update, :id => @task.id },
+      <%= form_for @project.task.build, remote: true, :url => { :action => :update, :id => @task.id },
 :method => :put do |f| %>
         <% if @task.errors.any? %>
           <div id="errorExplanation">

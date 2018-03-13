@@ -6,13 +6,13 @@
 
 
 <%# Added Bootstrap data modal attribute %>
-<%= link_to 'New Person', '#new_task_modal', 'data-toggle' => 'modal' %>
+<%= link_to 'New Task', '#new_task_modal', 'data-toggle' => 'modal' %>
 
 <div class="modal fade" id="new_task_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Crear nueva Tarea</h4>
+        <h4 class="modal-title" id="myModalLabel">Create New Task</h4>
       </div>
       <div class="modal-body">
         <%# Render the new person form (passing modal => true to enable remote => true) %>

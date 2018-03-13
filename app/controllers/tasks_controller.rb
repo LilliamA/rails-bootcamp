@@ -40,7 +40,8 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
     @task.destroy
     respond_to do |format|
       format.js
