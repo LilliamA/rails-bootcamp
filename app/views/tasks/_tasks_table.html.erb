@@ -9,8 +9,9 @@
             </tr>
         </thead>
     <tbody> 
-    <% tasks.each do |task| %>
-    <tr>
+    <% if @tasks%>
+           <% @tasks.each do  |task| %>
+        <tr>
         <td><%= task.title %></td>
         <td><%= task.priority %></td>
         <td><%= link_to 'Edit', edit_project_task_path(@project, task), remote: true%></td>
@@ -18,6 +19,9 @@
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
+    <%else%>
+    <td>No hay tareas registrados</td>
+    <%end %>
     </tbody>
   </table>
 </div>
