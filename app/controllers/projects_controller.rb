@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :set_projects, only: %i[index create destroy update]
     def index
-        @projects = Project.all
+        @projects = current_user.projects
         respond_to do |format|
             format.html
         end
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(project_params)
+        @project = current_user.projects.create(project_params)
         @project.save
         respond_to do |format|
             format.js
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
     private
     def set_projects
-        @projects = Project.all
+        @projects = current_user.projects
     end
 
     def project_params
