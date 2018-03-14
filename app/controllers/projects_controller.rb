@@ -49,6 +49,7 @@ class ProjectsController < ApplicationController
     end
 
     private
+    
     def set_projects
         @projects = current_user.projects
     end

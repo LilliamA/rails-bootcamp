@@ -1,10 +1,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  has_many :projects, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:facebook]
+
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -22,5 +28,4 @@ class User < ApplicationRecord
       user.image = auth.info.image # assuming the user model has an image
     end
   end
-  has_many :projects, dependent: :destroy
 end
