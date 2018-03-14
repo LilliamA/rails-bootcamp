@@ -13,13 +13,16 @@
   <% end %>
 
   <div class="form-group">
-     <%= f.label :Title, "Task Title:", class: "col-md-4 control-label" %> 
+     <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %> 
   </div>
   <div class="col-md-6">
     <%= f.text_field :title, class: "form-control" %>
   </div><br>
-  
-  <div class="form-group">
+  <div class="col-md-6">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+  </div><br>
+
+   <div class="form-group">
      <%= f.label :Priority, "Task Priority:", class: "col-md-4 control-label" %> 
   </div>
   <div class="col-md-6">
@@ -29,6 +32,5 @@
   <div class="col-md-6">
     <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
   </div><br>
-
 
 <% end %>
