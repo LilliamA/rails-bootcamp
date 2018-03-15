@@ -11,7 +11,9 @@ class TasksController < ApplicationController
   end
 
   def show
-  	@task = Task.find(params[:id])
+  	@project = Project.find(params[:project_id])
+    @task = Task.find(params[:id])
+    @comments = Comment.where(task_id: params[:id])
     respond_to do |format|
       format.html
     end
@@ -30,12 +32,10 @@ class TasksController < ApplicationController
 
   def update
     @task = @project.tasks.find(params[:id])
-    respond_to do |format|
-      if @task.update(task_params)
-        format.js
-      else
-        format.html { render :edit }
-      end
+    if @task.update(task_params)
+      redirect_to project_path(@project)
+    else
+      format.html { render :edit }
     end
   end
 

@@ -3,6 +3,8 @@
   <div id="project-table"> <%=render partial: 'projects/projects_table', locals: {projects: @projects}%></div>
 </div>
 
+<%= link_to 'Back', root_path, class: "btn" %>
+
 <div class="modal fade" id="new_project_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

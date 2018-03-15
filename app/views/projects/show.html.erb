@@ -2,9 +2,11 @@
   <h2>Lista de Tareas</h2>
   <div id="task-table"> <%=render partial: 'tasks/tasks_table', locals: {tasks: @tasks}%></div>
 </div>
+
 <%= link_to 'New Task', '#new_task_modal', class: "btn", 'data-toggle' => 'modal' %>
 
 <%= link_to 'Back', projects_path, class: "btn" %>
+
 <div class="modal fade" id="new_task_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

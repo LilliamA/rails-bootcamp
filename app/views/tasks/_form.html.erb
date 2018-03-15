@@ -1,5 +1,5 @@
    
-<%= form_for [@project, @project.tasks.build], url: project_tasks_path(@project), html: {multipart: true}, remote: true do |f| %>
+<%= form_for :task, url: project_tasks_path(@project), html: {multipart: true}, remote: true do |f| %>
   <div class="form-group">
      <%= f.label :title, "Task Title:", class: "col-md-4 control-label" %> 
   </div>
