@@ -1,0 +1,29 @@
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Title</th>
+            <th>Priority</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            </tr>
+        </thead>
+    <tbody> 
+    <% if @tasks%>
+           <% @tasks.each do  |task| %>
+        <tr>
+        <td><%= task.title %></td>
+        <td><%= task.priority %></td>
+        <td><%= link_to 'Show', project_task_path(@project, task) %></td>
+        <td><%= link_to 'Edit', edit_project_task_path(@project, task)%></td>
+        <td><%= link_to 'Done', [task.project, task], remote: true,
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+    <%else%>
+    <td>There is not tasks for this project</td>
+    <%end %>
+    </tbody>
+  </table>
+</div>

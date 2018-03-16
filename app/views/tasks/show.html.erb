@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Comments List</h2>
+  <div id="comment-table"> <%=render partial: 'comments/comments_table', locals: {Comments: @Comments}%></div>
+</div>
+
+<%= link_to 'New Comment', '#new_comment_modal', class: "btn", 'data-toggle' => 'modal' %>
+
+<%= link_to 'Back', project_path(@project), class: "btn" %>
+
+<div class="modal fade" id="new_comment_modal" tabindex="-1" role="dialog" aria-labelledby="newCommentLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newCommentLabel">Create New Comment</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'comments/new_comment_form', modal: true, remote: true, locals: {comment: @comment}%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

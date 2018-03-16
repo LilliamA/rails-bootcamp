@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :projects
+	
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :projects do 
+    resources :tasks do
+    	resources :comments do
+        resources :docs
+      end
+    end
+  end 
 
   root to: 'pages#home'
   

@@ -1,0 +1,33 @@
+<%= form_for @task, remote: true, :url => { :action => :update, :id => @task.id },
+:method => :put do |f| %>
+  <% if @task.errors.any? %>
+    <div id="errorExplanation">
+        <h2><%= pluralize(@task.errors.count, "error") %> prohibited
+          this task from being saved:</h2>
+        <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+     <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %> 
+  </div>
+  <div class="col-md-6">
+    <%= f.text_field :title, class: "form-control" %>
+  </div><br>
+  
+   <div class="form-group">
+     <%= f.label :Priority, "Task Priority:", class: "col-md-4 control-label" %> 
+  </div>
+  <div class="col-md-6">
+    <%= f.number_field :priority, class: "form-control" %>
+  </div><br>
+
+  <div class="col-md-6">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+  </div><br>
+
+<% end %>

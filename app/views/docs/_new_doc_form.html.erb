@@ -1,0 +1,12 @@
+<%= form_for :doc, url: project_task_comment_docs_path(@project, @task, @comment), html: {multipart: true}, remote: true do |f| %>
+
+  <div class="col">
+    <%= f.label :file, class: "col-md-6 control-label" %><br />
+    <%= f.file_field :file, class: "form-control" %><br />
+  </div>
+
+  <div class="col-md-6">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+  </div><br>
+
+<% end %>

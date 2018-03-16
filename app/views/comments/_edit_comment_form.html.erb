@@ -1,0 +1,26 @@
+<%= form_for @comment, remote: true, :url => { :action => :update, :id => @comment.id },
+:method => :put do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="errorExplanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited
+          this task from being saved:</h2>
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+     <%= f.label :text, "Text:", class: "col-md-4 control-label" %> 
+  </div>
+  <div class="col-md-6">
+    <%= f.text_field :text, class: "form-control" %>
+  </div><br>
+
+  <div class="col-md-6">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+  </div><br>
+
+<% end %>
