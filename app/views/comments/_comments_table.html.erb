@@ -1,0 +1,26 @@
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Title</th>
+            <th></th>
+            <th></th>
+            </tr>
+        </thead>
+    <tbody> 
+    <% if @comments%>
+        <% @comments.each do  |comment| %>
+            <tr>
+                <td><%= comment.text %></td>
+                <td><%= link_to 'Files', project_task_comment_path(@project, @task, comment) %></td>
+                <td><%= link_to 'Edit', edit_project_task_comment_path(@project, @task, comment) %></td>
+                <td><%= link_to 'Delete', project_task_comment_path(@project, @task, comment), remote: true,
+                            method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    <%else%>
+    <td>There is not comments about your task</td>
+    <%end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Files List</h2>
+  <div class="row" id="filesrender"> <%=render partial: 'docs/docs', locals: {docs: @docs}%></div>
+</div>
+
+<%= link_to 'New File', '#new_doc_modal', class: "btn", 'data-toggle' => 'modal' %>
+
+<%= link_to 'Back', project_task_path(@project, @task), class: "btn" %>
+
+<div class="modal fade" id="new_doc_modal" tabindex="-1" role="dialog" aria-labelledby="newCommentLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newCommentLabel">New File</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'docs/new_doc_form', modal: true, remote: true, locals: {doc: @doc}%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
