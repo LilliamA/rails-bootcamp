@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 
 
-	before_action :set_task, only: %i[edit new create update destroy]
-	before_action :set_comments, only: %i[create destroy update]
+	before_action :set_task, only: %i[edit create update destroy]
+	before_action :set_params, only: %i[edit create destroy update]
 
 	def index
 
@@ -12,15 +12,11 @@ class CommentsController < ApplicationController
     	end
     end
 
-	def index
-	    @tasks = Task.all
-	    respond_to do |format|
-	      format.html
-	    end
-    end
-
     def show
+      @project = Project.find(params[:project_id])
+      @task = Task.find(params[:task_id])
 	    @comment = Comment.find(params[:id])
+      @docs = Doc.where(comment_id: params[:id])
 	    respond_to do |format|
 	      format.html
 	    end
@@ -57,11 +53,11 @@ class CommentsController < ApplicationController
     private
 
     def set_task
-      @project= Project.find_by(id: params[:project_id])
       @task = Task.find_by(id: params[:task_id])
     end
 
-    def set_comments
+    def set_params
+      @project= Project.find_by(id: params[:project_id])
       @comments = Comment.where(task_id: params[:task_id])
     end
 
