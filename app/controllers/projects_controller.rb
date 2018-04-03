@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     end
 
     def create
+        binding.pry
         @project = current_user.projects.create(project_params)
         @project.save
         respond_to do |format|

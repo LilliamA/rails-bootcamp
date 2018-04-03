@@ -1,16 +1,10 @@
 
 <%= form_for :comment, url: project_task_comments_path(@project, @task), html: {multipart: true}, remote: true do |f| %>
 
-  <div class="form-group">
-     <%= f.label :text, "Text:", class: "col-md-4 control-label" %> 
-  </div>
-
-  <div class="col-md-6">
-    <%= f.text_field :text, class: "form-control" %>
-  </div><br>
-
-  <div class="col-md-6">
-    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
-  </div><br>
-
+	<div  id="center" >
+		<%= f.label :text, "Text:", class: "col-md-4 control-label" %> <br/> 
+		<%= f.text_field :text, class: "form-control" %><br/> 
+		<%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+	</div>
+	
 <% end %>

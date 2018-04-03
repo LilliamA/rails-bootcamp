@@ -1,13 +1,9 @@
 
 <%# Render the new person form (passing modal => true to enable remote => true) %>
 <%= form_for :project, remote: true do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "Project Title:", class: "col-md-4 control-label" %> 
-  </div>
-  <div class="col-md-6">
-      <%= f.text_field :tittle, class: "form-control" %>
-  </div><br>
-  <div class="col-md-6">
+  <div  id="center">
+    <%= f.label :title, "Project Title:", class: "col-md-4 control-label"%><br/> 
+    <%= f.text_field :tittle, class: "form-control" %><br/>
     <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
-  </div><br>
+  </div>
 <% end %>

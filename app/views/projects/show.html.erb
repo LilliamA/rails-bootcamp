@@ -1,25 +1,27 @@
-<div class="container">
-  <h2>Lista de Tareas</h2>
-  <div id="task-table"> <%=render partial: 'tasks/tasks_table', locals: {tasks: @tasks}%></div>
+<div id="center">  
+  <div class="container">
+    <h2>Tasks List</h2>
+    <div id="task-table"> <%=render partial: 'tasks/tasks_table', locals: {tasks: @tasks}%></div>
+  </div>
+
+  <div class="modal fade" id="new_task_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Create New Task</h4>
+        </div>
+        <div class="modal-body">
+          <%# Render the new person form (passing modal => true to enable remote => true) %>
+          <%= render 'tasks/form', modal: true, remote: true, locals: {task: @task}%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= link_to 'New Task', '#new_task_modal', class: "btn", 'data-toggle' => 'modal' %>
 
 <%= link_to 'Back', projects_path, class: "btn" %>
-
-<div class="modal fade" id="new_task_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Create New Task</h4>
-      </div>
-      <div class="modal-body">
-        <%# Render the new person form (passing modal => true to enable remote => true) %>
-        <%= render 'tasks/form', modal: true, remote: true, locals: {task: @task}%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

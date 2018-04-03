@@ -12,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-     <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %> 
-  </div>
-  <div class="col-md-6">
-    <%= f.text_field :title, class: "form-control" %>
-  </div><br>
-  
-   <div class="form-group">
-     <%= f.label :Priority, "Task Priority:", class: "col-md-4 control-label" %> 
-  </div>
-  <div class="col-md-6">
-    <%= f.number_field :priority, class: "form-control" %>
-  </div><br>
+  <div id="center" class="row">
 
-  <div class="col-md-6">
-    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
-  </div><br>
+    <div class="col-md-3"></div>
+    
+    <div id="center" class="col-md-6">
+      
+      <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %><br/>
+      <%= f.text_field :title, class: "form-control" %><br/>
+      <%= f.label :Priority, "Task Priority:", class: "col-md-4 control-label" %><br/> 
+      <%= f.number_field :priority, class: "form-control" %><br/>
+      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+
+    </div>
+
+    <div class="col-md-3"></div>
+    
+  </div>
 
 <% end %>

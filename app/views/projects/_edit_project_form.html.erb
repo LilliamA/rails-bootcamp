@@ -1,4 +1,3 @@
-
 <%= form_for @project, remote: true, :url => { :action => :update, :id => @project.id },
 :method => :put do |f| %>
   <% if @project.errors.any? %>
@@ -13,13 +12,18 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-     <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %> 
-  </div>
-  <div class="col-md-6">
-    <%= f.text_field :tittle, class: "form-control" %>
-  </div><br>
-  <div class="col-md-6">
-    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
-  </div><br>
+  <div id="center", class="row">
+
+    <div class="col-md-3"></div>
+
+    <div id="center" class="col-md-6">
+
+      <%= f.label :Title, "Project Title:", class: "col-md-4 control-label" %> 
+      <%= f.text_field :tittle, class: "form-control" %><br/> 
+      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+
+    </div>
+  
+    <div class="col-md-3"></div>
+  </div> 
 <% end %>
