@@ -17,6 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: pguser
+  password: 1234asdf
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -24,8 +26,6 @@ default: &default
 development:
   <<: *default
   database: rails-bootcamp-_development
-  username: pguser
-  password: 1234asdf
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,8 +60,6 @@ development:
 test:
   <<: *default
   database: rails-bootcamp-_test
-  username: pguser
-  password: 1234asdf
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,5 +83,5 @@ test:
 production:
   <<: *default
   database: rails-bootcamp-_production
-  username: pguser
-  password: 1234asdf
+  username: rails-bootcamp
+  password: <%= ENV['RAILS-BOOTCAMP_DATABASE_PASSWORD'] %>
